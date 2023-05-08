@@ -1,13 +1,9 @@
 // These styles apply to every route in the application
-import "@/styles/globals.css";
-import { Inter } from "@next/font/google";
-import Toaster from "@/components/toaster";
-import AuthStatus from "@/components/auth-status";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@/styles/globals.css';
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ['latin'],
-});
+import Toaster from '@/components/toaster';
+import AuthStatus from '@/components/auth-status';
 
 export default async function RootLayout({
   children,
@@ -17,7 +13,7 @@ export default async function RootLayout({
   const AuthStatusDiv = await AuthStatus();
   return (
     <html lang="en">
-      <body className={inter.variable}>
+      <body>
         <Toaster />
         {AuthStatusDiv}
         {children}

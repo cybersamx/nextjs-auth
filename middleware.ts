@@ -1,12 +1,12 @@
-import { getToken } from "next-auth/jwt";
+import { getToken } from 'next-auth/jwt';
 import { NextRequest, NextResponse } from "next/server";
 
 export default async function middleware(req: NextRequest) {
-  // Get the pathname of the request (e.g. /, /protected)
-  const path = req.nextUrl.pathname;
-  
+  const reqPath = req.nextUrl.pathname;
+  const protectedPath = '/protected';
+
   // If it's the root path, just render it
-  if (path === "/") {
+  if (reqPath === "/") {
     return NextResponse.next();
   }
 
@@ -14,10 +14,12 @@ export default async function middleware(req: NextRequest) {
     req,
     secret: process.env.NEXTAUTH_SECRET,
   });
-  if (!session && path === "/protected") {
-    return NextResponse.redirect(new URL("/login", req.url));
-  } else if (session && (path === "/login" || path === "/register")) {
-    return NextResponse.redirect(new URL("/protected", req.url));
+
+
+  if (!session && reqPath === protectedPath) {
+    return NextResponse.redirect(new URL('/login', req.url));
+  } else if (session && (reqPath === '/login' || reqPath === '/register')) {
+    return NextResponse.redirect(new URL('/protected', req.url));
   }
   return NextResponse.next();
 }

@@ -1,6 +1,6 @@
 # Next.js Auth
 
-A Next.js/Bootstrap project with standard auth pages.
+A simple, clean starter web app project with Next.js, React, and Bootstrap.
 
 # Setup
 
