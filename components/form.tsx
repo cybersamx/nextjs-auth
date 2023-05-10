@@ -106,7 +106,7 @@ export default function Form({ type }: { type: 'login' | 'signup' }) {
       {type === "login" ? (
         <p className='text-center text-sm text-gray-600'>
           Don&apos;t have an account?{" "}
-          <Link href='/register' className='font-semibold text-gray-800'>
+          <Link href='/signup' className='font-semibold text-gray-800'>
             Sign up
           </Link>{' '}
           for free.
