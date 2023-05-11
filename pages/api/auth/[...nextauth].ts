@@ -19,7 +19,7 @@ export default NextAuth({
           throw new Error('Missing username or password');
         }
 
-        const user = getUser(email);
+        const user = await getUser(email);
 
         if (!user || !(await compare(password, user.password))) {
           throw new Error('Invalid email or password');

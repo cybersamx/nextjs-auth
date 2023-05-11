@@ -1,7 +1,7 @@
 import { getToken } from 'next-auth/jwt';
 import { NextRequest, NextResponse } from 'next/server';
 
-export default async function middleware(req: NextRequest) {
+async function middleware(req: NextRequest) {
   const reqPath = req.nextUrl.pathname;
   const protectedPath = '/protected';
 
@@ -23,3 +23,5 @@ export default async function middleware(req: NextRequest) {
 
   return NextResponse.next();
 }
+
+export default middleware;

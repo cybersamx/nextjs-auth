@@ -1,4 +1,5 @@
 interface User {
+  id: string;
   email: string;
   password: string;
 }
@@ -6,27 +7,50 @@ interface User {
 const users = new Map<string, User>([
   [
     'admin@example.com', {
-      email: 'admin@example.com',
-      password: '$2b$10$QaQOHd.lVSGO7WDNzpHZY.P2oXyiERolYUL6MYnOUylb1GXy8NDFu'
-    },
+    id: '0',
+    email: 'admin@example.com',
+    password: '$2b$10$QaQOHd.lVSGO7WDNzpHZY.P2oXyiERolYUL6MYnOUylb1GXy8NDFu'
+  },
   ],
 ]);
 
-function addUser(email: string, password: string): User | null {
-  const user = {email, password};
-  users.set(email, user);
 
-  return user;
+function newUID(): string {
+  return Math.floor(Date.now() / 1000).toString();
 }
 
-function getUser(email: string): User | null {
-  const foundUser = users.get(email);
-  if (!foundUser) {
-    return null;
-  }
+async function addUser(email: string, password: string): Promise<User | null> {
+  return new Promise<User>((resolve, reject) => {
+    const user = {
+      id: newUID(),
+      email,
+      password
+    };
 
-  return foundUser;
+    users.set(email, user);
+
+    return resolve(user);
+  });
+}
+
+function getUser(email: string): Promise<User | null> {
+  return new Promise<User | null>((resolve, reject) => {
+    const foundUser = users.get(email);
+
+    if (!foundUser) {
+      // return reject(new Error(`user ${email} not found`));
+      return resolve(null);
+    }
+
+    return resolve(foundUser);
+  });
+}
+
+function getUsers(): Promise<Array<User> | null> {
+  return new Promise<Array<User>>((resolve, reject) => {
+    return resolve(Array.from(users.values()));
+  });
 }
 
 export type { User };
-export { addUser, getUser };
+export { addUser, getUser, getUsers };

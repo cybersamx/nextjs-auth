@@ -9,12 +9,13 @@ export default async function handler(
 ) {
   const { email, password } = req.body;
 
-  const found = getUser(email);
+  const found = await getUser(email);
 
   if (found) {
     res.status(400).send('User already exists');
   } else {
     const user = addUser(email, await hash(password, 10));
+    console.log(user);
 
     res.status(200).json(user);
   }
