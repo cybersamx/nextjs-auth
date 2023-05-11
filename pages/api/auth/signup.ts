@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { addUser, getUser } from './store';
+import { addUser, getUser } from '@/lib/store';
 
 import { hash } from 'bcrypt';
 

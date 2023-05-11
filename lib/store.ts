@@ -1,19 +1,4 @@
-interface User {
-  id: string;
-  email: string;
-  password: string;
-}
-
-const users = new Map<string, User>([
-  [
-    'admin@example.com', {
-    id: '0',
-    email: 'admin@example.com',
-    password: '$2b$10$QaQOHd.lVSGO7WDNzpHZY.P2oXyiERolYUL6MYnOUylb1GXy8NDFu'
-  },
-  ],
-]);
-
+import { User, users } from './global';
 
 function newUID(): string {
   return Math.floor(Date.now() / 1000).toString();
@@ -52,5 +37,4 @@ function getUsers(): Promise<Array<User> | null> {
   });
 }
 
-export type { User };
 export { addUser, getUser, getUsers };

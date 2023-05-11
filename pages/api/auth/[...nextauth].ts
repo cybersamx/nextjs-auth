@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { compare } from 'bcrypt';
 
-import { getUser } from './store';
+import { getUser } from '@/lib/store';
 
 export default NextAuth({
   providers: [
