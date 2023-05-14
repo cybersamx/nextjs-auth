@@ -1,4 +1,4 @@
-function Head() {
+export default function Head() {
   const title = 'Next.js Bootstrap';
   const description = 'A simple, clean starter web app project with Next.js, React, and Bootstrap.';
   const image = 'https://nextjs-mysql-auth.vercel.app/thumbnail.png';
@@ -19,5 +19,3 @@ function Head() {
     </>
   );
 }
-
-export default Head;

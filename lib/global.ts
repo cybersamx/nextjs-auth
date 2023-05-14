@@ -1,4 +1,4 @@
-interface User {
+export interface User {
   id: string;
   email: string;
   password: string;
@@ -8,7 +8,7 @@ declare global {
   var users: Map<string, User> | undefined;
 }
 
-const users = global.users || new Map<string, User>([
+export const users = global.users || new Map<string, User>([
   [
     'admin@example.com', {
     id: '0',
@@ -21,6 +21,3 @@ const users = global.users || new Map<string, User>([
 if (process.env.NODE_ENV === 'development') {
   global.users = users;
 }
-
-export type { User };
-export { users };

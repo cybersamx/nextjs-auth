@@ -59,8 +59,8 @@ export default function Form({ type }: { type: 'login' | 'signup' }) {
     >
       <div>
         <label
-          htmlFor='email'
-          className='block text-xs text-gray-600 uppercase'
+          htmlFor="email"
+          className="block text-xs text-gray-600 uppercase"
         >
           Email Address
         </label>
@@ -68,7 +68,7 @@ export default function Form({ type }: { type: 'login' | 'signup' }) {
           id='email'
           name='email'
           type='email'
-          placeholder='panic@thedis.co'
+          placeholder='email'
           autoComplete='email'
           required
           className='mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm'
@@ -85,6 +85,7 @@ export default function Form({ type }: { type: 'login' | 'signup' }) {
           id='password'
           name='password'
           type='password'
+          placeholder='password'
           required
           className='mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm'
         />
