@@ -1,19 +1,17 @@
-// These styles apply to every route in the application
 import '@/styles/globals.css';
 
-import React from 'react';
+import * as React from 'react';
 import Toaster from '@/components/toaster';
 import AuthStatus from '@/components/auth-status';
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode; }) {
   const AuthStatusDiv = await AuthStatus();
 
   return (
     <html lang="en">
+      <head>
+        <title>Next.js Material UI</title>
+      </head>
       <body>
         <Toaster />
         {AuthStatusDiv}
