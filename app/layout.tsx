@@ -1,5 +1,4 @@
 // These styles apply to every route in the application
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/styles/globals.css';
 
 import React from 'react';

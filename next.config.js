@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
-    serverComponentsExternalPackages: ["react-bootstrap"],
+    serverComponentsExternalPackages: [],
   },
 };
 
