@@ -1,6 +1,6 @@
 export default function Head() {
-  const title = 'Next.js Bootstrap';
-  const description = 'A simple, clean starter web app project with Next.js, React, and Bootstrap.';
+  const title = 'Next.js Material UI';
+  const description = 'A simple, clean starter web app project with Next.js, React, and Material UI.';
   const image = 'https://nextjs-mysql-auth.vercel.app/thumbnail.png';
 
   return (
