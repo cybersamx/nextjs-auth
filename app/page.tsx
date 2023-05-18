@@ -13,8 +13,7 @@ export default function Home() {
           </p>
           <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <Button href="/signup" variant="outlined" sx={{ m: 0.5 }}>Sign up</Button>
-            <a href="/signup" className="btn btn-outline-secondary btn-lg px-4" role="button">Sign up</a>
-            <a href="/login" className="btn btn-primary btn-lg px-4 gap-3" role="button">Log in</a>
+            <Button href="/login" variant="contained" sx={{ m: 0.5 }}>Login</Button>
           </div>
         </div>
       </div>
